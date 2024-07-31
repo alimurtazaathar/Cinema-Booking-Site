@@ -1,31 +1,56 @@
-import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom"
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useParams,useNavigate } from "react-router-dom"
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import Seats from "../components/Seats";
+import { MovieContext } from "../MovieContext";
+import RouteNav from "../components/RouteNav";
 export default function BookTicket() {
     //seatBooked is an array of states that tells whether a seat is booked or not
 
     const location = useLocation()
-    const seats=0;
-    const bill=0;
-    function updateSeatsAndBill()
+    console.log(location)
+    const [numSeats,setNumSeats]=useState(location.state?.numSeats || 0);
+    const [seatBooked,setSeatBooked]=useState(location.state?.seatBooked || new Array(64).fill(false));
+    const [probFilled,setProbFilled]=useState(location.state?.seatBooked || new Array(64).fill(false))
+    const navigate=useNavigate()
+    const {movie}=useContext(MovieContext)
+    const price=Math.floor(numSeats*movie.vote_average);
+    let status=0;
+        
+    function updateBooking(status)
     {
-
+        // console.log("update booking",status)
+        status?setNumSeats((prev)=>prev+1):setNumSeats((prev)=>prev-1);
     }
+    function toggleBooked(index)
+    {
+        setSeatBooked((prev)=>{
+            let newArray=[...prev]
+            newArray[index]=!newArray[index];
+            updateBooking(newArray[index])
+            // console.log(status)
+            return newArray;
+        })
+    }
+    useEffect(()=>{
+        if(!location.state)
+            {
+                setProbFilled((prev)=>{
+                    const newArray=prev.map((item)=>{
+                        return Math.random()>0.5?true:false;
+                    })
+                    return newArray
+                })
+            }
+    },[])
     return (
-        <div className="flex flex-col justify-center items-center h-screen relative">
+        <div className="flex flex-col justify-evenly items-center  relative h-screen ">
 
-            <Link to={`/${location.state}`}>
-                <div className="fixed top-10 left-7 flex items-center justify-center bg-gray-400
-               bg-opacity-30 rounded hover:scale-105 hover:bg-indigo-600 " >
-                    <IoIosArrowRoundBack className="text-5xl text-white opacity-80 " />
-                </div>
-            </Link>
+            <RouteNav to={`/${movie.id}`} title="Choose Seats"/>
 
-            <div className="w-full flex flex-col items-center justify-center mt-4 max-w-md">
-                <h1 className="text-center text-gray-300  text-3xl tracking-widest">Choose Seats</h1>
+            <div className="w-full flex flex-col items-center justify-center mt-4 max-w-lg ">
                 <div className=" flex gap-2 items-center tracking-tight">
                     <div className=" max-w-full">
                         <FaLocationDot className="text-white" />
@@ -41,7 +66,7 @@ export default function BookTicket() {
                     </svg>
                 </div>
                 <div className="grid grid-cols-8 grid-rows-8 w-3/4 h-auto gap-y-4 gap-x-1 items-center p-4">
-                    <Seats />
+                    <Seats toggle={toggleBooked} seatBooked={seatBooked} probFilled={probFilled} />
                 </div>
                 <div className="flex justify-between items-center w-3/4 text-gray-600 mt-3">
                     <div className="flex justify-center  items-center gap-2">
@@ -57,21 +82,30 @@ export default function BookTicket() {
                         <span>Selected</span>
                     </div>
                 </div>
-                <div className="w-full max-w-md flex justify-evenly gap-2 items-stretch px-3 self-end absolute bottom-2">
+                
+            </div >
+            <div className="w-full max-w-md flex justify-between gap-2 items-stretch  px-3 ">
                     <div className="flex flex-col">
-                        <span className=" text-yellow-500 text-2xl tracking-wide">$0</span>
-                        <span className="text-gray-600 text-sm
-                        ">2 seats selected</span>
+                        <span className=" text-yellow-500 text-2xl tracking-wide">${price}</span>
+                        <span className="text-gray-600 text-nowrap
+                        ">{numSeats} seats selected</span>
                     </div>
-                    <Link to="/booking" className="bg-indigo-600 text-white border-none rounded w-3/4 flex items-center justify-center py-4 cursor-pointer hover:brightness-90 align-middle ">
-
-                        <button >
+                    
+                        
+                        <button className="bg-indigo-600 text-white border-none rounded  flex items-center justify-center py-4 cursor-pointer hover:brightness-90 w-full align-middle " onClick={(e)=>{
+                            if(numSeats===0)
+                            {
+                                e.preventDefault();
+                            alert('Please choose atleast one seat')
+                            }
+                            else{
+                                navigate('/bookdate',{state:{seatBooked,probFilled,numSeats}})
+                            }
+                            }}>
                             Proceed
                         </button>
-                    </Link>
-                </div>
 
-            </div >
+                </div>
 
         </div>
     )

@@ -15,7 +15,7 @@ export default function Nav()
                 <span className="text-gray-400 hover:text-indigo-600 cursor-pointer mr-10">MyBookings</span>
                 </Link>
                 <Link to="/login">
-                <button className="border rounded-full p-2 px-6 border-indigo-600 hover:bg-indigo-600 hover:text-black  text-gray-400 cursor-pointer font-medium" >Login</button>
+                <button className="border-2 rounded-full p-2 px-6 border-indigo-600 hover:bg-indigo-600 hover:text-black  text-gray-400 cursor-pointer font-medium" >Login</button>
 
                 </Link>
             </div>
