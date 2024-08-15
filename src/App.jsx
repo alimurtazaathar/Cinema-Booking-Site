@@ -30,9 +30,10 @@ const router=createBrowserRouter(createRoutesFromElements(
   <Route path="/detail/:id" element={<Detail/>} loader={detailLoader}/>
   <Route element={<SeatContextLayout/>}>
   <Route path="/bookseats" element={<BookSeats/>} loader={routeLoader}/>
-  <Route path="/bookdate" element={<BookDate/>}/>
+  
  
   </Route>
+  <Route path="/bookdate" element={<BookDate/>}/>
   <Route path="/ticket" element={<Ticket/>}/>
 
   </>

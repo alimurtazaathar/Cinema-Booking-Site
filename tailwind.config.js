@@ -14,6 +14,7 @@ export default {
       fontFamily:
       {
         'outfit': ['Outfit', 'sans-serif'],
+        
       },
       backgroundColor:
       {
@@ -21,6 +22,7 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 }
 

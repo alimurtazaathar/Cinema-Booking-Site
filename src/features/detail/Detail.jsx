@@ -78,7 +78,7 @@ export default function Detail() {
       </div>
       <div className="w-full flex  gap-2  fixed lg:static  bottom-1 px-4 lg:px-6 lg:pb-3">
        <LikeBtn/>
-        <ActionBtn navigateTo="/bookseats" text="Book Now"/>
+        <ActionBtn navigateTo="/bookdate" text="Book Now"/>
       </div>
             
           

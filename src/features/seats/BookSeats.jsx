@@ -39,7 +39,7 @@ function onProceed()
 
   return (
     <div className='flex flex-col items-center justify-evenly  h-screen'>
-      <RoutesNav title="Choose Seats" navigateTo={`/detail/${movie.id}`} />
+      <RoutesNav title="Choose Seats" navigateTo={`/bookdate`} />
     
      <div className='flex flex-col items-center   w-11/12 max-w-md '> 
      <div className="flex gap-2 items-center tracking-tight ">
