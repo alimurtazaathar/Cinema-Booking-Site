@@ -10,6 +10,7 @@ import BookSeats from './features/seats/BookSeats';
 import BookDate from './features/date/BookDate';
 import { SeatProvider } from './SeatContext';
 import Ticket from './features/ticket/Ticket';
+import Payment from './features/payment/Payment';
 
 function SeatContextLayout()
 {
@@ -30,12 +31,13 @@ const router=createBrowserRouter(createRoutesFromElements(
   <Route path="/detail/:id" element={<Detail/>} loader={detailLoader}/>
   <Route element={<SeatContextLayout/>}>
   <Route path="/bookseats" element={<BookSeats/>} loader={routeLoader}/>
+  <Route path="/ticket" element={<Ticket/>}/>
+  <Route path="/payment" element={<Payment/>}/>
   
- 
   </Route>
   <Route path="/bookdate" element={<BookDate/>}/>
-  <Route path="/ticket" element={<Ticket/>}/>
-
+  
+ 
   </>
 ))
 
