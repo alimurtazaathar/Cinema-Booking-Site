@@ -10,10 +10,6 @@ import { MovieContext } from '../../../../cinema-site/src/MovieContext'
 
 export default function BookDate() {
   const movie = useSelector(selectCurrent);
-  function onProceed()
-  {
-
-  }
   
   return (
     <div className='flex flex-col  h-screen justify-evenly items-center'>

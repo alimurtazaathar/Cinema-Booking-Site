@@ -33,10 +33,5 @@ const ticketSlice=createSlice({
 export const selectMovieTicket=state=>state.ticket.movieId;
 export const selectTicketPrice=state=>state.ticket.price
 export const selectTicketTime=state=>state.ticket.time;
-export const selectTicketDate=state=>{
-    const date=state.ticket.date;
-    const [day, month, year] = date.split('/');
-    const serializedDate = new Date(year, month - 1, day, 0, 0, 0, 0);
-    return serializedDate;
-}
+export const selectTicketDate=state=>state.ticket.date
 export default ticketSlice.reducer;
