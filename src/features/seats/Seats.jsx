@@ -3,7 +3,6 @@ import { RxCross2 } from "react-icons/rx";
 import SeatContext from '../../SeatContext';
 import { seatSelected } from '../ticketSlice';
 import { useDispatch } from 'react-redux';
-import { MovieContext } from '../../../../cinema-site/src/MovieContext';
 
 export default function Seats({ toggle,price}) {
 
