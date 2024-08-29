@@ -70,9 +70,9 @@ function onProceed()
 
       <Seats toggle={toggleBooked}/>
 </div>
-      <div className="w-full lg:w-3/4 flex justify-center lg:justify-center gap-2  px-3  ">
+      <div className="w-full  flex justify-evenly max-w-md   ">
         <PriceDetail price={price} numSeats={numSeats}/>
-        <ActionBtn text="Proceed" navigateTo="/bookdate" disabled={numSeats===0} onProceed={onProceed}/>
+        <ActionBtn text="Proceed" navigateTo="/payment/card" disabled={numSeats===0} onProceed={onProceed} style={'w-[70%]  py-1 mx-0'}/>
       </div>
 
     </div>

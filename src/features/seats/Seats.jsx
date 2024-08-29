@@ -32,20 +32,20 @@ export default function Seats({ toggle,price}) {
    
     return(
         <>
-        <div className="grid grid-cols-8 grid-rows-7 w-3/4 max-w-md h-auto gap-y-4 gap-x-1 items-center p-4 opacity-50">
+        <div className="grid grid-cols-8 grid-rows-7 w-3/4 max-w-xs h-auto gap-y-4 gap-x-1 items-center p-4 opacity-50">
             {seatsGrid}
         </div>
-        <div className="flex justify-between items-center w-full text-gray-600 mt-1  text-xs lg:text-base opacity-50">
+        <div className="flex justify-between items-center w-full text-gray-600 mt-1  text-xs lg:text-base opacity-50 lg:px-3">
                     <div className="flex justify-center  items-center gap-1">
-                        <div className="aspect-square border-indigo-600 border-2 bg-transparent rounded h-4 w-4 lg:h-5 lg:w-5"></div>
+                        <div className="aspect-square border-indigo-600 border-2 bg-transparent rounded h-4 w-4 "></div>
                         <span>Available</span>
                     </div>
                     <div className="flex justify-center  items-center gap-1">
-                        <RxCross2 className="text-gray-600 border-gray-600 border-2 bg-transparent rounded text-center h-4 w-4  lg:h-5 lg:w-5" />
+                        <RxCross2 className="text-gray-600 border-gray-600 border-2 bg-transparent rounded text-center h-4 w-4  " />
                         <span>Booked</span>
                     </div>
                     <div className="flex justify-center items-center gap-1">
-                        <div className="h-4 w-4  lg:h-5 lg:w-5 border-indigo-600 border-2 bg-indigo-600 rounded "></div>
+                        <div className="h-4 w-4   border-indigo-600 border-2 bg-indigo-600 rounded "></div>
                         <span>Selected</span>
                     </div>
                 </div>

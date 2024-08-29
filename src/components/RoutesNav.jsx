@@ -11,7 +11,7 @@ export default function RoutesNav({navigateTo,title,style})
               <div className="absolute left-[3%] top-0
                aspect-square
               flex  items-center justify-center  bg-gray-600
-             bg-opacity-30 rounded hover:scale-105 hover:bg-indigo-600 " >
+             bg-opacity-30 rounded lg:hover:scale-105 lg:hover:bg-indigo-600 " >
                   <IoIosArrowRoundBack className="text-3xl lg:text-5xl text-white opacity-80 "/>
               </div>
           </Link>

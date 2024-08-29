@@ -5,6 +5,7 @@ const initialState={
     amount:0.0,
     date:"",
     time:"",
+    booked:false,
 }
 const ticketSlice=createSlice({
     name:"ticket",
@@ -24,14 +25,21 @@ const ticketSlice=createSlice({
        dateSelected(state,action){
         const date=action.payload;
         state.date=date;
+       },
+       paymentDone(state){
+        state.booked=true;
+       },
+       clearTicket(state){
+        return initialState;
        }
     }
 
 })
 
- export const {seatSelected,timeSelected,dateSelected}=ticketSlice.actions;
+ export const {seatSelected,timeSelected,dateSelected,clearTicket,paymentDone}=ticketSlice.actions;
 export const selectMovieTicket=state=>state.ticket.movieId;
-export const selectTicketPrice=state=>state.ticket.price
+export const selectTicketPrice=state=>state.ticket.amount;
 export const selectTicketTime=state=>state.ticket.time;
-export const selectTicketDate=state=>state.ticket.date
+export const selectTicketDate=state=>state.ticket.date;
+export const selectBookingStatus=state=>state.ticket.booked
 export default ticketSlice.reducer;

@@ -52,7 +52,7 @@ export default function Detail() {
         </div>
 
       </div>
-      <div className="bg-bodyColor w-full text-detailColor px-[1em] lg:px-6  pt-4 pb-16 lg:pb-4">
+      <div className="bg-bodyColor w-full text-detailColor px-[1em] lg:px-6  pt-4 pb-16 lg:pb-4 ">
 
         <h3 className=" text-base lg:text-3xl mb-3 font-medium lg:mt-4">Overview</h3>
         <p className=" w-11/12 text-xs lg:text-xl leading-5 mb-6 opacity-75 max-w-xl">{movie.overview}</p>

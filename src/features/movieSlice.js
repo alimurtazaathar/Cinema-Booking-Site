@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState={
-    currentMovie:null,
+    currentMovie:{},
 }
 const movieSlice=createSlice({
     name:"movie",
@@ -10,10 +10,13 @@ const movieSlice=createSlice({
             console.log("state changed yo")
             state.currentMovie= action.payload;
         },
+        movieUnclicked(state){
+           return initialState;
+        }
     }
 
 })
 
-export const {movieClicked}=movieSlice.actions;
+export const {movieClicked,movieUnclicked}=movieSlice.actions;
 export const selectCurrent=state=>state.movie.currentMovie;
 export default movieSlice.reducer;

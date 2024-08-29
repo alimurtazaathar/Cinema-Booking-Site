@@ -1,16 +1,24 @@
 import React,{useEffect, useState} from "react";
 import {FaStar } from "react-icons/fa";
-import { useLoaderData,Link,useLocation } from "react-router-dom";
+import { useLoaderData,Link,useLocation, useNavigate } from "react-router-dom";
 import Scroll from "./Scroll.jsx";
 import Stars from "../../components/Stars.jsx"
-import { movieClicked } from "../movieSlice.js";
+import { clearTicket, selectBookingStatus } from "../ticketSlice.js";
+import { movieClicked,movieUnclicked } from "../movieSlice.js";
 import { useDispatch,useSelector } from "react-redux";
 
 export default function Home() {
     const {result1,result2} = useLoaderData();
     const [all,setAll]=useState(false);
+    const navigate=useNavigate()
+    const bookingStatus=useSelector(selectBookingStatus)
     const dispatch=useDispatch()
-
+    useEffect(()=>{
+        if(bookingStatus){
+            dispatch(clearTicket())
+            dispatch(movieUnclicked())
+        }
+        },[])
     function dispatchMovieToStore(movieDetails)
     {
         console.log(movieDetails,"here")
@@ -20,10 +28,13 @@ export default function Home() {
     const legacyMovies= result2.map((movie) => (
         <div key={movie.id} className="w-[48%]
         lg:w-[24%]
-        lg:mb-6 text-gray-200 relative shadow-md cursor-pointer flex-shrink-0 hover:scale-105 transition-transform duration-300 ease-in-out">
-        <Link to={`/detail/${movie.id}`} onClick={()=>{dispatchMovieToStore(movie)}}>
-        <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} className=" rounded-xl opacity-60 hover:opacity-90 
-        max-w-full object-contain"
+        lg:mb-6 text-gray-200 relative shadow-md cursor-pointer flex-shrink-0 hover:scale-105 transition-transform duration-300 ease-in-out rounded-xl">
+        <Link to={`/detail/${movie.id}`} onClick={()=>{dispatchMovieToStore(movie);
+            
+            navigate(`/detail/${movie.id}`)
+        }}>
+        <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} className=" rounded-xl opacity-60 hover:opacity-70 
+        min-w-full object-contain"
         
         />
         

@@ -3,7 +3,7 @@ import {loader as routeLoader} from "../routeLoader"
 
 export async function loader({params})
 {
-        routeLoader();
+        const check=routeLoader();
         const url = `https://api.themoviedb.org/3/movie/${params.id}?language=en-US`;
         const options = {
           method: 'GET',
