@@ -6,7 +6,7 @@ import RoutesNav from '../../components/RoutesNav'
 import ActionBtn from '../../components/ActionBtn'
 import DateSelector from './DateSelector'
 import TimeOptns from './TimeOptns'
-import { MovieContext } from '../../../../cinema-site/src/MovieContext'
+
 
 export default function BookDate() {
   const movie = useSelector(selectCurrent);
