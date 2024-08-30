@@ -19,7 +19,10 @@ export default function BookSeats() {
   useEffect(()=>{
     setNumSeats(arrangement.selected)
   },[arrangement])
-
+  useEffect(()=>{
+    window.scrollTo(-1,0)
+  },[])
+ 
 
   function toggleBooked(index) {
     setArrangement((prev) => ({
@@ -38,7 +41,7 @@ function onProceed()
 }
 
   return (
-    <div className='flex flex-col items-center justify-evenly  h-screen'>
+    <div className='flex flex-col items-center justify-evenly  h-dvh'>
       <RoutesNav title="Choose Seats" navigateTo={`/bookdate`} />
     
      <div className='flex flex-col items-center   w-11/12 max-w-md '> 

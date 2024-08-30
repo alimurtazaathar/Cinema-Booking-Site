@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider,GithubAuthProvider, signInWithPopup } from "firebase/auth";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDcOU_yGODORNM04qfx-VJMPinKZVyQ6YU",
   authDomain: "cinema-booking-site.firebaseapp.com",
@@ -14,3 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
+export const githubProvider = new GithubAuthProvider();

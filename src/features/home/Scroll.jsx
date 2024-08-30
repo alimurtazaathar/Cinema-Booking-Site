@@ -15,7 +15,7 @@ const Scroll = ({movies,onLinkClick}) => {
         <div className="flex justify-between items-center mt-[-6px] lg:mt-0">
             <Stars rating={movie.vote_average/10 *5}/>
             <div>
-            <span className=" font-bold text-xs lg:text-base self-end text-yellow-500">$ {(movie.vote_average).toPrecision(3)}</span>
+            <span className=" font-bold text-xs lg:text-base self-end text-yellow-500">$ {Math.floor(movie.vote_average)}</span>
             </div>
         </div>
         </div>

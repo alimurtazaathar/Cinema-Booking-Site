@@ -12,7 +12,7 @@ export default function BookDate() {
   const movie = useSelector(selectCurrent);
   
   return (
-    <div className='flex flex-col  h-screen justify-evenly items-center'>
+    <div className='flex flex-col  h-dvh lg:h-screen justify-evenly items-center'>
       <RoutesNav navigateTo={`/detail/${movie.id}`} title="Choose Date" />
       <div className='flex flex-col items-center '>
         <DateSelector />

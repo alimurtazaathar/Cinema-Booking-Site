@@ -2,18 +2,10 @@ import store from '../store/store'
 import { selectCurrent } from './movieSlice'
 import { redirect } from 'react-router-dom'
 import { selectBookingStatus } from './ticketSlice';
-
-export async function loader()
+import {requireAuth,checkStates} from "./utils.js"
+export async function loader({request})
 {
-    const state=store.getState();
-    const currentMovie=selectCurrent(state);
-    console.log(currentMovie)
-    const bookingStatus=selectBookingStatus(state);
-    console.log(bookingStatus)
-    if(Object.keys(currentMovie).length===0 || bookingStatus)
-      {
-        console.log('oo')
-        return redirect('/')
-      }
-      return null;
+    const url=new URL(request.url);
+    requireAuth(url.pathname)
+    return checkStates();
 }

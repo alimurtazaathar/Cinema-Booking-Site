@@ -22,7 +22,7 @@ const Wallet = () => {
 
   
 
-  const inputStyle = 'rounded p-3 bg-[rgba(39,40,53,255)] bg-opacity-75 text-gray-400 text-xs placeholder-gray-400 placeholder-opacity-15 w-full';
+  const inputStyle = 'rounded p-3 bg-[rgba(39,40,53,255)] bg-opacity-75 text-gray-400 text-[16px]  placeholder-gray-400 placeholder-opacity-15 w-full';
 
   return (
     <div className='flex flex-col gap-2 w-full'>

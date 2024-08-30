@@ -14,6 +14,7 @@ import Payment from './features/payment/Payment';
 import Cards from './features/payment/Cards';
 import Wallet from './features/payment/Wallet';
 import Login from './features/auth/Login';
+import {loader as loginLoader} from './features/auth/loginLoader';
 
 function SeatContextLayout()
 {
@@ -30,7 +31,7 @@ const router=createBrowserRouter(createRoutesFromElements(
   <>
   <Route path="/" element={<Nav/>}>
     <Route index element={<Home/>} loader={homeLoader}/>
-    <Route path="login" element={<Login/>}/>
+    <Route path="login" element={<Login/>} loader={loginLoader}/>
   </Route>
   <Route path="/detail/:id" element={<Detail/>} loader={detailLoader}/>
   <Route element={<SeatContextLayout/>}>

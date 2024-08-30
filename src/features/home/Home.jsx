@@ -28,7 +28,7 @@ export default function Home() {
     const legacyMovies= result2.map((movie) => (
         <div key={movie.id} className="w-[48%]
         lg:w-[24%]
-        lg:mb-6 text-gray-200 relative shadow-md cursor-pointer flex-shrink-0 hover:scale-105 transition-transform duration-300 ease-in-out rounded-xl">
+        lg:mb-6 text-gray-200 relative shadow-md cursor-pointer flex-shrink-0 lg:hover:scale-105 lg:transition-transform lg:duration-300 lg:ease-in-out rounded-xl">
         <Link to={`/detail/${movie.id}`} onClick={()=>{dispatchMovieToStore(movie);
             
             navigate(`/detail/${movie.id}`)

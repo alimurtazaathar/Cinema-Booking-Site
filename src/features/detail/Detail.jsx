@@ -9,7 +9,7 @@ import LikeBtn from './LikeBtn';
 
 export default function Detail() {
   const movie = useLoaderData() 
-  //console.log(movie)
+  
   const rating = Math.floor(movie.vote_average / 10 * 5);
 
   function timeInHours(duration) {
@@ -21,10 +21,10 @@ export default function Detail() {
     window.scrollTo(-1,0)
   },[])
   return (
-    <div className="h-screen">
+    <div className="h-dvh">
       <div className='flex flex-col justify-between bg-bottom  h-[48vh] lg:h-[70vh]'
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url(http://image.tmdb.org/t/p/w780/${movie.backdrop_path})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url(http://image.tmdb.org/t/p/w500/${movie.backdrop_path})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
@@ -46,13 +46,13 @@ export default function Detail() {
             <div className="flex gap-1 items-center ">
               <Stars rating={rating} detail="true"/>
               <span className="ml-1 lg:ml-4 text-xs lg:text-xl text-yellow-600">{rating}/5</span></div>
-            <span className="font-bold text-base lg:text-3xl self-end">$ {(movie.vote_average).toPrecision(3)}</span>
+            <span className="font-bold text-base lg:text-3xl self-end">$ {Math.floor(movie.vote_average).toPrecision(3)}</span>
           </div>
 
         </div>
 
       </div>
-      <div className="bg-bodyColor w-full text-detailColor px-[1em] lg:px-6  pt-4 pb-16 lg:pb-4 ">
+      <div className="bg-bodyColor w-full text-detailColor px-[1em] lg:px-6  pt-4 pb-16 lg:pb-4 n">
 
         <h3 className=" text-base lg:text-3xl mb-3 font-medium lg:mt-4">Overview</h3>
         <p className=" w-11/12 text-xs lg:text-xl leading-5 mb-6 opacity-75 max-w-xl">{movie.overview}</p>
@@ -61,7 +61,7 @@ export default function Detail() {
         <div className="flex mt-4 gap-5 ">
 
           <div className="max-w-full w-1/3 rounded ">
-            <img src={`http://image.tmdb.org/t/p/w780/${movie.poster_path}`} className="rounded min-w-full h-full" />
+            <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} className="rounded min-w-full " />
           </div>
           <div className="flex flex-col  w-full justify-evenly
            text-xs

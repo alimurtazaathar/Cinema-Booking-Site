@@ -1,9 +1,14 @@
 
 import {loader as routeLoader} from "../routeLoader"
+import { checkStates } from "../utils";
+
+
+
+
 
 export async function loader({params})
 {
-        const check=routeLoader();
+        const check=checkStates();
         const url = `https://api.themoviedb.org/3/movie/${params.id}?language=en-US`;
         const options = {
           method: 'GET',
