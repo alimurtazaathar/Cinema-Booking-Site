@@ -21,7 +21,7 @@ export default function Nav() {
     }
     return (
         <>
-            <nav className="mb-4 lg:mb-10">
+            <nav className="mb-2 lg:mb-4">
                 <div className="flex  items-center shadow-md p-4 text-gray-400 lg:px-6">
                     <Link to="/" className="mr-auto">
                         <h1 className="text-indigo-600 cursor-pointer font-extrabold md:text-2xl lg:text-3xl">CinemaBooker</h1>

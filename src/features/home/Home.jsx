@@ -24,17 +24,16 @@ export default function Home() {
         console.log(movieDetails,"here")
         dispatch(movieClicked(movieDetails))
     }
-   
+    const hoverClass = "lg:hover:brightness-110 lg:hover:scale-105 lg:transition-all lg:duration-300";
     const legacyMovies= result2.map((movie) => (
         <div key={movie.id} className="w-[48%]
         lg:w-[24%]
-        lg:mb-6 text-gray-200 relative shadow-md cursor-pointer flex-shrink-0 lg:hover:scale-105 lg:transition-transform lg:duration-300 lg:ease-in-out rounded-xl">
+        lg:mb-6 text-gray-200 relative shadow-md cursor-pointer flex-shrink-0  rounded-xl">
         <Link to={`/detail/${movie.id}`} onClick={()=>{dispatchMovieToStore(movie);
             
             navigate(`/detail/${movie.id}`)
         }}>
-        <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} className=" rounded-xl opacity-60 hover:opacity-70 
-        min-w-full object-contain"
+        <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}  className={`rounded-xl opacity-60 min-w-full object-contain lg:hover:brightness-110 lg:hover:scale-105 lg:transition-all lg:duration-300 ${hoverClass}`}
         
         />
         

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link,redirect,Outlet,useNavigate } from 'react-router-dom'
 import RoutesNav from '../../components/RoutesNav'
-import visa from "../../assets/visa.png"
-import masterCard from "../../assets/mastercard.png"
-import jazzCash from "../../assets/jazzcash.png"
-import easyPaisa from "../../assets/easypaisa.png"
+import visa from "../../assets/visa.webp"
+import masterCard from "../../assets/mastercard.webp"
+import jazzCash from "../../assets/jazzcash.webp"
+import easyPaisa from "../../assets/easypaisa.webp"
 
 import { selectTicketPrice ,paymentDone} from '../ticketSlice'
 import { useDispatch, useSelector } from 'react-redux'

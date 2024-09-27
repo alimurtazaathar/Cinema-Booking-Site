@@ -6,10 +6,12 @@ import { FaPlay,FaHeart } from "react-icons/fa";
 import Stars from '../../components/Stars'
 import ActionBtn from '../../components/ActionBtn';
 import LikeBtn from './LikeBtn';
-
+import { requireAuth } from '../utils';
+import { useLocation } from 'react-router-dom';
 export default function Detail() {
-  const movie = useLoaderData() 
-  
+  const {movie,trailerPath} = useLoaderData();
+  const location=useLocation(); 
+  // console.log("i am the movie",movie);
   const rating = Math.floor(movie.vote_average / 10 * 5);
 
   function timeInHours(duration) {
@@ -31,7 +33,7 @@ export default function Detail() {
 
         }} >
         <RoutesNav navigateTo="/" title="" style="true"/>
-        <a href="#" className=" w-12 h-12 
+        <a href={`${trailerPath}`} target="_blank" className=" w-12 h-12 
         lg:w-20 lg:h-20
         rounded-full bg-gray-600 bg-opacity-50
        flex items-center justify-center hover:scale-105 self-center  hover:bg-indigo-600 my-auto">
@@ -77,7 +79,7 @@ export default function Detail() {
 
       </div>
       <div className="w-full flex  gap-2  fixed lg:static  bottom-1 px-4 lg:px-6 lg:pb-3">
-       <LikeBtn/>
+       <LikeBtn  id={movie.id} path={location.pathname}/>
         <ActionBtn navigateTo="/bookdate" text="Book Now"/>
       </div>
             

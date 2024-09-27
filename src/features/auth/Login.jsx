@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  useNavigate } from 'react-router-dom';
 import { loggedIn } from './authslice';
 import { IoLogoGithub } from "react-icons/io";
-import googleIcon from "../../assets/google-logo.png";
+import googleIcon from "../../assets/google-logo.webp";
 import { auth, googleProvider ,githubProvider} from "../../firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useLoaderData } from 'react-router-dom';
